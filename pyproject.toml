@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ma_backtesting"
+version = "0.1.0"
+description = "Moving average backtesting tools"
+authors = [
+    { name = "Will", email = "william.ogilvie2.com" }
+]
+
+dependencies = [
+    "pandas",
+    "dotenv", 
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
