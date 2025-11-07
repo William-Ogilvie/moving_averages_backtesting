@@ -4,13 +4,20 @@ import requests
 import pandas as pd
 from dotenv import load_dotenv
 import os
+from ma_backtesting import load_config
 
 # Get Alpha Vantage api key
 load_dotenv() # loads .env file
 api_key = os.getenv("ALPHAVANTAGE_API_KEY")
 
+# Load config
+config, PROJECT_ROOT = load_config()
+
+# Constants
+DATA_DIR = PROJECT_ROOT / config["dir_paths"]["data"]
+
 # Choose which stocks to look at, IBM, Apple, S&P 500, Microsoft, Nvidia
-stocks = ["IBM", "AAPL", "SPY", "MSFT", "NVDA"]
+stocks = config["basic_settings"]["stocks"]
 
 def query_stock(ticker: str) -> dict:
     """ Function querries the Alpha Vantage stock market API https://www.alphavantage.co/ for the requested stock
@@ -87,7 +94,7 @@ for ticker in stocks:
     print(ts_df["volume"].dtype)
 
     # Export data to csv
-    ts_df.to_csv(f"{ticker}_OHLCV.csv")
+    ts_df.to_csv(f"{DATA_DIR}.csv")
 
 
 

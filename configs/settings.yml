@@ -1,0 +1,2 @@
+{basic_settings: {stocks: ["IBM", "AAPL", "SPY", "MSFT", "NVDA"]},
+dir_paths: {data: data}}
