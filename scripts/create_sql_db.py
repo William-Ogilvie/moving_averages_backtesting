@@ -1,15 +1,21 @@
+"""
+create_sql_db.py
+=================
+This script creates an SQL database and then inserts the data we extracted into the csvs from the fetch_data.py script
+"""
 
 
+# --- Imports ---
 import pandas as pd
 from sqlalchemy import Column, Date, Float, Integer, MetaData, Table, Text, create_engine, text
 from ma_backtesting import load_config
 
-
+# --- Config and constants ---
 config, PROJECT_ROOT = load_config()
 
-# Constants
 DATA_DIR = PROJECT_ROOT / config["dir_paths"]["data"]
 
+# --- Create SQL db ---
 # Create an engine for an sqlite db
 engine = create_engine(f"sqlite:///{DATA_DIR}/test.db", future = True)
 metadata = MetaData()
@@ -31,6 +37,7 @@ prices = Table(
 metadata.drop_all(engine) # reset the database
 metadata.create_all(engine) # create the defined table above
 
+# --- Insert into SQL db ---
 # Loop through the tickers in the config
 for ticker in config["basic_settings"]["stocks"]:
     # Insert from CSV into the table

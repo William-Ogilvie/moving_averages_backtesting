@@ -5,17 +5,18 @@ This module querries the Alpha Vantage API (https://www.alphavantage.co) for ope
 low, close and volume for a series of tickers on a daily time scale going back 20+ years.
 
 It cleans the data and then saves it as a csv into the data directory.
+
+Alpha Vantage docs: https://www.alphavantage.co/documentation/
 """
 
-
-# Using alpha vantage to get financial data
-# https://www.alphavantage.co/documentation/
+# --- Imports ---
 import requests
 import pandas as pd
 from dotenv import load_dotenv
 import os
 from ma_backtesting import load_config
 
+# --- Config, API keys and constants ---
 # Get Alpha Vantage api key
 load_dotenv() # loads .env file
 api_key = os.getenv("ALPHAVANTAGE_API_KEY")
@@ -29,6 +30,7 @@ DATA_DIR = PROJECT_ROOT / config["dir_paths"]["data"]
 # Choose which stocks to look at, IBM, Apple, S&P 500, Microsoft, Nvidia
 stocks = config["basic_settings"]["stocks"]
 
+# --- Functions ---
 def query_stock(ticker: str) -> dict:
     """ Function querries the Alpha Vantage stock market API https://www.alphavantage.co/ for the requested stock
 
@@ -48,6 +50,7 @@ def query_stock(ticker: str) -> dict:
     
     return r.json()
 
+# --- Query API ---
 # Loop through the stocks, query the api, clean the data and save to a csv
 for ticker in stocks:
 

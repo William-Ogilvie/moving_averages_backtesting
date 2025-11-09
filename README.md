@@ -14,3 +14,11 @@ docker run -it --rm --mount type=bind,src="$(pwd)",dst=/app ma-backtest
 ```bash
 sqlite3 data/test.db
 ```
+
+## .env file for keys
+
+You will need to create a .env file contaning your Alpha Vantage API key, store as:
+
+```env
+ALPHAVANTAGEAPIKEY=[your key]
+```
