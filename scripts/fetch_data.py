@@ -1,3 +1,13 @@
+"""
+fetch_data.py
+==============
+This module querries the Alpha Vantage API (https://www.alphavantage.co) for open, high,
+low, close and volume for a series of tickers on a daily time scale going back 20+ years.
+
+It cleans the data and then saves it as a csv into the data directory.
+"""
+
+
 # Using alpha vantage to get financial data
 # https://www.alphavantage.co/documentation/
 import requests
@@ -94,7 +104,7 @@ for ticker in stocks:
     print(ts_df["volume"].dtype)
 
     # Export data to csv
-    ts_df.to_csv(f"{DATA_DIR}.csv")
+    ts_df.to_csv(DATA_DIR / f"{ticker}_OHLCV.csv")
 
 
 

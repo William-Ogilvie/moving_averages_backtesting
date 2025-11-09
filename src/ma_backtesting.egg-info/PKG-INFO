@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: ma_backtesting
+Version: 0.1.0
+Summary: Moving average backtesting tools
+Author-email: Will <william.ogilvie2@outlook.com>
+Requires-Dist: pandas
+Requires-Dist: dotenv

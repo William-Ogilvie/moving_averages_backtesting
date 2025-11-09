@@ -14,7 +14,7 @@ from pathlib import Path
 
 # src/ma_backtests is location of current file so go two above to get project root
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-CONFIG_PATH = PROJECT_ROOT / "config" / "settings.yml"
+CONFIG_PATH = PROJECT_ROOT / "configs" / "settings.yml"
 
 # --- Functions ---
 def load_config() -> tuple[dict, Path]:

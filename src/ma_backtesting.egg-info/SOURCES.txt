@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+src/ma_backtesting/__init__.py
+src/ma_backtesting/io_utils.py
+src/ma_backtesting.egg-info/PKG-INFO
+src/ma_backtesting.egg-info/SOURCES.txt
+src/ma_backtesting.egg-info/dependency_links.txt
+src/ma_backtesting.egg-info/requires.txt
+src/ma_backtesting.egg-info/top_level.txt

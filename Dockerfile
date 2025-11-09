@@ -8,7 +8,7 @@ ARG ENV_FILE=environment.yml
 COPY --chown=$MAMBA_USER:$MAMBA_USER $ENV_FILE /tmp/$ENV_FILE
 
 # Create the environment and clean up
-RUN micromamba install -y -n base -f /tmp$ENV_FILE && \
+RUN micromamba install -y -n base -f /tmp/$ENV_FILE && \
     micromamba clean --all --yes
 
 # Set as working directory
@@ -18,4 +18,4 @@ WORKDIR /app
 # docker build -t ma-backtest --build-arg ENV_FILE=environment.yml .
 
 # When you run the container we want to bind mount the current directory to it
-# docker run -it --rm --mount type=bind,src="(pwd)",dst=/app ma-backtest
+# docker run -it --rm --mount type=bind,src="$(pwd)",dst=/app ma-backtest
