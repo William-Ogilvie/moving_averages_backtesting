@@ -7,4 +7,6 @@ dependencies:
   - pandas
   - python-dotenv
   - pyyaml
+  - SQLAlchemy
+  - sqlite
   - pip
