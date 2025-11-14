@@ -9,6 +9,13 @@ docker build -t ma-backtest --build-arg ENV_FILE=environment.yml .
 docker run -it --rm --mount type=bind,src="$(pwd)",dst=/app ma-backtest
 ```
 
+Will need to install python package:
+
+```bash
+pip install -e .
+```
+
+
 ## SQLite CLI
 
 ```bash

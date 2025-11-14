@@ -14,10 +14,10 @@ from ma_backtesting import load_config
 config, PROJECT_ROOT = load_config()
 
 DATA_DIR = PROJECT_ROOT / config["dir_paths"]["data"]
-
+DB_NAME = config["basic_settings"]["data_base_name"]
 # --- Create SQL db ---
 # Create an engine for an sqlite db
-engine = create_engine(f"sqlite:///{DATA_DIR}/test.db", future = True)
+engine = create_engine(f"sqlite:///{DATA_DIR}/{DB_NAME}.db", future = True)
 metadata = MetaData()
 
 # Create the table in metadata
@@ -71,7 +71,7 @@ for ticker in config["basic_settings"]["stocks"]:
                 }, # binding values
             )
 
-# To use the SQLite CLI to check if we inserted properly do sqlite3 data/test.db
+# To use the SQLite CLI to check if we inserted properly do sqlite3 data/prices.db
 # then do SELECT * FROM prices LIMIT 5;
 # test querries:
 # SELECT open, close FROM prices WHERE ticker = 'MSFT' AND date = '2009-04-28'
