@@ -1,3 +1,4 @@
+-- Query creates moving averages for each ticker into a new table called prices_indicators
 CREATE TABLE IF NOT EXISTS prices_indicators AS
 SELECT
     p.id,
