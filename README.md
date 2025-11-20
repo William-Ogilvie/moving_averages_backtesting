@@ -29,3 +29,6 @@ You will need to create a .env file contaning your Alpha Vantage API key, store 
 ```env
 ALPHAVANTAGEAPIKEY=[your key]
 ```
+
+### Expo of strategy
+https://www.investopedia.com/ask/answers/121114/what-difference-between-golden-cross-and-death-cross-pattern.asp

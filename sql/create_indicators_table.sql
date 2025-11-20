@@ -28,7 +28,7 @@ SELECT
     AVG(p.close) OVER (
         PARTITION BY p.ticker
         ORDER BY p.date
-        ROWS BETWEEN 365 PRECEDING AND CURRENT ROW
-    ) AS ma365
+        ROWS BETWEEN 200 PRECEDING AND CURRENT ROW
+    ) AS ma200
 FROM prices p;
 
